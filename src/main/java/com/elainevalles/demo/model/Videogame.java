@@ -2,11 +2,10 @@ package com.elainevalles.demo.model;
 
 import jakarta.persistence.*;
 
-import java.math.BigDecimal;
 
 @Entity
 @Table(name="tvideojuego")
-public class Videojuego {
+public class Videogame {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -14,22 +13,22 @@ public class Videojuego {
     private String platform;
     private boolean multiplayer;
     @Column(name="pvp")
-    private BigDecimal price;
+    private int price;
     @Transient // Doesn't get saved to the database' the field is transient the var status
     private boolean status;
 
-    public Videojuego() { // empty constructor for JPA
+    public Videogame() { // empty constructor for JPA
     }
 
-    public Videojuego(boolean status, BigDecimal price, boolean multiplayer, String platform, String title) { // Doesn't need an ID'
-        this.status = status;
-        this.price = price;
-        this.multiplayer = multiplayer;
+    public Videogame(String title, String platform, boolean multiplayer, int price, boolean status) { // Doesn't need an ID'
+        this.title = title;                                                                             // Hibernate autogenerate ID
         this.platform = platform;
-        this.title = title;
+        this.multiplayer = multiplayer;
+        this.price = price;
+        this.status = status;
     }
 
-    public Videojuego(int id, String title, String platform, boolean multiplayer, BigDecimal price, boolean status) { // Need an ID and all the other fields
+    public Videogame(int id, String title, String platform, boolean multiplayer, int price, boolean status) { // Need an ID and all the other fields
         this.id = id;
         this.title = title;
         this.platform = platform;
@@ -70,11 +69,11 @@ public class Videojuego {
         this.multiplayer = multiplayer;
     }
 
-    public BigDecimal getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
@@ -84,5 +83,17 @@ public class Videojuego {
 
     public void setStatus(boolean status) {
         this.status = status;
+    }
+
+    @Override // sout output through terminal __ Always must be included
+    public String toString() {
+        return "Videogame{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", platform='" + platform + '\'' +
+                ", multiplayer=" + multiplayer +
+                ", price=" + price +
+                ", status=" + status +
+                '}';
     }
 }

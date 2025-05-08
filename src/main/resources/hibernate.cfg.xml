@@ -19,6 +19,7 @@
         <!-- Update the database schema on startup -->
         <property name="hibernate.hbm2ddl.auto">update</property>
         <!-- List of mapped classes -->
-        <mapping class="com.elainevalles.demo.model.Videojuego"/>
+        <mapping class="com.elainevalles.demo.model.Videogame"/>
+        <mapping class="com.elainevalles.demo.model.Genre"/><!-- Mapping configuration inside hibernate.cfg.xml nanana -->
     </session-factory>
 </hibernate-configuration>

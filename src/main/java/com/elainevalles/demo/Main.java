@@ -1,9 +1,41 @@
 package com.elainevalles.demo;
 
+import com.elainevalles.demo.model.Videogame;
+import com.elainevalles.demo.repository.VideogameDAO;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
+        // CREATE VIDEOGAME
+//        Videogame cod = new Videogame("Amoung us", "PS4", true, 40, true);
+//        VideogameDAO.Create(cod);
+//        Videogame cod2 = new Videogame("HALO", "PS4", true, 80, true);
+//        VideogameDAO.Create(cod2);
+//        Videogame cod3 = new Videogame("Gunbounds", "PS4", true, 140, true);
+//        VideogameDAO.Create(cod3);
+//        Videogame cod4 = new Videogame("Plato", "PS4", true, 20, true);
+//        VideogameDAO.Create(cod4);
 
+        // READ-ALL
+        System.out.println(VideogameDAO.readAll());
+
+        // READ VIDEOGAME
+//        Videogame cod = VideogameDAO.Read(1);
+//        System.out.println(cod);
+//
+//        // UPDATE VIDEOGAME
+//        cod.setPlatform("Xbox 360");
+//        VideogameDAO.Update(cod);
+
+        // DELETE VIDEOGAME
+        Videogame cod = VideogameDAO.read(20);
+
+        VideogameDAO.delete(cod); // Does require fixing
+
+
+        // CREATE GENRE
+//        Genre Adventure = new Genre("Adventure", "A story with a twist");
+//        GenreDAO.Create(Adventure);
     }
 }
