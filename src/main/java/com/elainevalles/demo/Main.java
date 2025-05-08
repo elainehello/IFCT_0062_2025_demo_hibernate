@@ -20,8 +20,8 @@ public class Main {
 //        VideogameDAO.Create(cod4);
 
         // READ-ALL
-        List<Videogame> videogames = VideogameDAO.getAll();
-        videogames.forEach(System.out::println);
+//        List<Videogame> videogames = VideogameDAO.readAll();
+//        videogames.forEach(System.out::println);
 
         // READ VIDEOGAME
 //        Videogame cod = VideogameDAO.Read(1);
@@ -40,5 +40,10 @@ public class Main {
         // CREATE GENRE
 //        Genre Adventure = new Genre("Adventure", "A story with a twist");
 //        GenreDAO.Create(Adventure);
+
+        // SEARCH BY PLATFORM
+        List<Videogame> videogames = VideogameDAO.findByPlatform("PS4");
+        System.out.println("After search:");
+        videogames.forEach(System.out::println);
     }
 }

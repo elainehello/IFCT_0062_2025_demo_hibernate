@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name="tvideojuego")
+@NamedQuery(name = "findByPlatform",
+            query = "FROM Videogame e WHERE e.platform LIKE :platform")
 public class Videogame {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

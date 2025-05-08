@@ -2,6 +2,7 @@ package com.elainevalles.demo.repository;
 
 import com.elainevalles.demo.model.Videogame;
 import com.elainevalles.demo.persistence.HibernateUtil;
+import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
 import org.hibernate.Session;
 
@@ -25,9 +26,18 @@ public class VideogameDAO {
         return videogame;
     }
 
-    public static List<Videogame> getAll() {
+    public static List<Videogame> readAll() {
         Session session = HibernateUtil.getSessionFactory().openSession();
         TypedQuery<Videogame> query = session.createQuery("FROM Videogame", Videogame.class);
+        List<Videogame> videogames = query.getResultList();
+        session.close();
+        return videogames;
+    }
+
+    public static List<Videogame> findByPlatform(String platform) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Query query = session.createNamedQuery("findByPlatform", Videogame.class);
+        query.setParameter("platform", platform);
         List<Videogame> videogames = query.getResultList();
         session.close();
         return videogames;
