@@ -3,6 +3,8 @@ package com.elainevalles.demo;
 import com.elainevalles.demo.model.Videogame;
 import com.elainevalles.demo.repository.VideogameDAO;
 
+import java.util.List;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
@@ -18,7 +20,8 @@ public class Main {
 //        VideogameDAO.Create(cod4);
 
         // READ-ALL
-        System.out.println(VideogameDAO.readAll());
+        List<Videogame> videogames = VideogameDAO.getAll();
+        videogames.forEach(System.out::println);
 
         // READ VIDEOGAME
 //        Videogame cod = VideogameDAO.Read(1);
@@ -29,9 +32,9 @@ public class Main {
 //        VideogameDAO.Update(cod);
 
         // DELETE VIDEOGAME
-        Videogame cod = VideogameDAO.read(20);
-
-        VideogameDAO.delete(cod); // Does require fixing
+//        Videogame cod = VideogameDAO.read(20);
+//
+//        VideogameDAO.delete(cod); // Does require fixing
 
 
         // CREATE GENRE

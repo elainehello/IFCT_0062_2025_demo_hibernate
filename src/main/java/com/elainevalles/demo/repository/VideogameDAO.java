@@ -25,9 +25,9 @@ public class VideogameDAO {
         return videogame;
     }
 
-    public static List<Videogame> readAll() {
+    public static List<Videogame> getAll() {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        TypedQuery<Videogame> query = session.createQuery("from Videogame", Videogame.class);
+        TypedQuery<Videogame> query = session.createQuery("FROM Videogame", Videogame.class);
         List<Videogame> videogames = query.getResultList();
         session.close();
         return videogames;
