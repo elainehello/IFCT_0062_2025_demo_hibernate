@@ -69,9 +69,10 @@ public class Main {
 
         // CREATE STUDIO
         // Step 1: Create the composite key
-        StudioPK studioPK = new StudioPK("Ubisoft", "UBI");
+        StudioPK studioPK = new StudioPK("12345", 88);
 
         // Step 2: Create the Studio entity
-        Studio studio = new Studio(studioPK, "Ubisoft Entertainment", "France");
+        Studio studio = new Studio(studioPK, "El Estudio", "USA");
+        StudioDAO.create(studio);
     }
 }

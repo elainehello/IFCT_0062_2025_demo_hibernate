@@ -1,6 +1,7 @@
 package com.elainevalles.demo.repository;
 
 import com.elainevalles.demo.model.Studio;
+import com.elainevalles.demo.model.StudioPK;
 import com.elainevalles.demo.persistence.HibernateUtil;
 import org.hibernate.Session;
 
@@ -14,7 +15,7 @@ public class StudioDAO {
         session.close();
     }
 
-    public static Studio read(int id) {
+    public static Studio read(StudioPK id) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Studio studio = session.get(Studio.class, id);
         session.close();
