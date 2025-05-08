@@ -1,8 +1,11 @@
 package com.elainevalles.demo;
 
 import com.elainevalles.demo.model.Genre;
+import com.elainevalles.demo.model.Studio;
+import com.elainevalles.demo.model.StudioPK;
 import com.elainevalles.demo.model.Videogame;
 import com.elainevalles.demo.repository.GenreDAO;
+import com.elainevalles.demo.repository.StudioDAO;
 import com.elainevalles.demo.repository.VideogameDAO;
 
 import java.util.List;
@@ -13,9 +16,9 @@ public class Main {
     public static void main(String[] args) {
 
         // CREATE GENRE MUST-BE
-        Genre genre = GenreDAO.read(1);
-        Videogame doom = new Videogame("Doom", "PC", true, 100, true, genre);
-        VideogameDAO.create(doom);
+//        Genre genre = GenreDAO.read(1);
+//        Videogame doom = new Videogame("Doom", "PC", true, 100, true, genre);
+//        VideogameDAO.create(doom);
 
         // CREATE VIDEOGAME
 //        Videogame cod = new Videogame("Amoung us", "PS4", true, 40, true);
@@ -62,5 +65,13 @@ public class Main {
 //        Videogame vd = VideogameDAO.read(1);
 //        System.out.println(vd);
 //        System.out.println(vd.getGenre().getDescription());
+
+
+        // CREATE STUDIO
+        // Step 1: Create the composite key
+        StudioPK studioPK = new StudioPK("Ubisoft", "UBI");
+
+        // Step 2: Create the Studio entity
+        Studio studio = new Studio(studioPK, "Ubisoft Entertainment", "France");
     }
 }
