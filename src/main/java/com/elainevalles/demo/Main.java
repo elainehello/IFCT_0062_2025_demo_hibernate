@@ -11,6 +11,12 @@ import java.util.List;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
+
+        // CREATE GENRE MUST-BE
+        Genre genre = GenreDAO.read(1);
+        Videogame doom = new Videogame("Doom", "PC", true, 100, true, genre);
+        VideogameDAO.create(doom);
+
         // CREATE VIDEOGAME
 //        Videogame cod = new Videogame("Amoung us", "PS4", true, 40, true);
 //        VideogameDAO.Create(cod);
@@ -53,8 +59,8 @@ public class Main {
 //            GenreDAO.create(Adventure);
 //        Videogame videog = new Videogame("GTA V", "PC", true, 100, true, new Genre(1, "Action", "A story with a twist"));
 //        VideogameDAO.create(videog);
-        Videogame vd = VideogameDAO.read(1);
-        System.out.println(vd);
-        System.out.println(vd.getGenre().getDescription());
+//        Videogame vd = VideogameDAO.read(1);
+//        System.out.println(vd);
+//        System.out.println(vd.getGenre().getDescription());
     }
 }
