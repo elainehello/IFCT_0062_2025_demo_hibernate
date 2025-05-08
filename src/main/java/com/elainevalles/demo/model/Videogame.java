@@ -19,7 +19,7 @@ public class Videogame {
     @Transient // Doesn't get saved to the database' the field is transient the var status
     private boolean status;
     @ManyToOne
-    @JoinColumn(name = "idGenre")
+    @JoinColumn(name = "idgenre")
     private Genre genre;
 
     public Videogame() { // empty constructor for JPA
