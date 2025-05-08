@@ -18,25 +18,31 @@ public class Videogame {
     private int price;
     @Transient // Doesn't get saved to the database' the field is transient the var status
     private boolean status;
+    @ManyToOne
+    @JoinColumn(name = "idGenre")
+    private Genre genre;
 
     public Videogame() { // empty constructor for JPA
     }
 
-    public Videogame(String title, String platform, boolean multiplayer, int price, boolean status) { // Doesn't need an ID'
-        this.title = title;                                                                             // Hibernate autogenerate ID
+
+    public Videogame(String title, String platform, boolean multiplayer, int price, boolean status, Genre genre) {// Doesn't need an ID'
+        this.title = title;                                                                                         // Hibernate autogenerate ID
         this.platform = platform;
         this.multiplayer = multiplayer;
         this.price = price;
         this.status = status;
+        this.genre = genre;
     }
 
-    public Videogame(int id, String title, String platform, boolean multiplayer, int price, boolean status) { // Need an ID and all the other fields
+    public Videogame(int id, String title, String platform, boolean multiplayer, int price, boolean status, Genre genre) { // Need an ID and all the other fields
         this.id = id;
         this.title = title;
         this.platform = platform;
         this.multiplayer = multiplayer;
         this.price = price;
         this.status = status;
+        this.genre = genre;
     }
 
     public int getId() {
@@ -87,6 +93,14 @@ public class Videogame {
         this.status = status;
     }
 
+    public Genre getGenre() {
+        return genre;
+    }
+
+    public void setGenre(Genre genre) {
+        this.genre = genre;
+    }
+
     @Override // sout output through terminal __ Always must be included
     public String toString() {
         return "Videogame{" +
@@ -96,6 +110,7 @@ public class Videogame {
                 ", multiplayer=" + multiplayer +
                 ", price=" + price +
                 ", status=" + status +
+                ", genre=" + genre +
                 '}';
     }
 }

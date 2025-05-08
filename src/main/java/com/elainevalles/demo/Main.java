@@ -1,6 +1,8 @@
 package com.elainevalles.demo;
 
+import com.elainevalles.demo.model.Genre;
 import com.elainevalles.demo.model.Videogame;
+import com.elainevalles.demo.repository.GenreDAO;
 import com.elainevalles.demo.repository.VideogameDAO;
 
 import java.util.List;
@@ -42,8 +44,17 @@ public class Main {
 //        GenreDAO.Create(Adventure);
 
         // SEARCH BY PLATFORM
-        List<Videogame> videogames = VideogameDAO.findByPlatform("PS4");
-        System.out.println("After search:");
-        videogames.forEach(System.out::println);
+//        List<Videogame> videogames = VideogameDAO.findByPlatform("PS4");
+//        System.out.println("After search:");
+//        videogames.forEach(System.out::println);
+
+        // CREATE GENRE
+//            Genre Adventure = new Genre("Adventure", "A story with a twist");
+//            GenreDAO.create(Adventure);
+//        Videogame videog = new Videogame("GTA V", "PC", true, 100, true, new Genre(1, "Action", "A story with a twist"));
+//        VideogameDAO.create(videog);
+        Videogame vd = VideogameDAO.read(1);
+        System.out.println(vd);
+        System.out.println(vd.getGenre().getDescription());
     }
 }
