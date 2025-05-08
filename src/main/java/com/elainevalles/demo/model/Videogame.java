@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name="tvideojuego")
-@NamedQuery(name = "findByPlatform",
+@NamedQuery(name = "findByPlatform",           // NamedQuery
             query = "FROM Videogame e WHERE e.platform LIKE :platform")
 public class Videogame {
     @Id
