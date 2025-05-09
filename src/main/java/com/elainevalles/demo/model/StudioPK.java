@@ -3,24 +3,23 @@ package com.elainevalles.demo.model;
 import jakarta.persistence.Embeddable;
 
 import java.io.Serializable;
-import java.sql.Struct;
 
 @Embeddable
 public class StudioPK implements Serializable {
-    private String namePK;
-    private int prefix;
+    private String name;
+    private int year;
 
     public StudioPK() {
 
     }
-    public StudioPK(String name, int prefix) {
-        this.namePK = name;
-        this.prefix = prefix;
+    public StudioPK(String name, int year) {
+        this.name = name;
+        this.year = year;
     }
     public String getName() {
-        return namePK;
+        return name;
     }
     public void setName(String name) {
-        this.namePK = name;
+        this.name = name;
     }
 }

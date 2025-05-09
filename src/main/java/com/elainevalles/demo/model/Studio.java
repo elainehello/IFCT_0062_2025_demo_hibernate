@@ -8,7 +8,7 @@ public class Studio {
 
     @EmbeddedId
     private StudioPK id;
-    private String name;
+    private String description;
     private String country;
 
     public Studio() {
@@ -17,7 +17,7 @@ public class Studio {
 
     public Studio(StudioPK id, String name, String country) {
         this.id = id;
-        this.name = name;
+        this.description = name;
         this.country = country;
     }
 
@@ -27,11 +27,11 @@ public class Studio {
     public void setId(StudioPK id) {
         this.id = id;
     }
-    public String getName() {
-        return name;
+    public String getDescription() {
+        return description;
     }
-    public void setName(String name) {
-        this.name = name;
+    public void setDescription(String name) {
+        this.description = name;
     }
     public String getCountry() {
         return country;
@@ -44,7 +44,7 @@ public class Studio {
     public String toString() {
         return "Studio{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", name='" + description + '\'' +
                 ", country='" + country + '\'' +
                 '}';
     }
